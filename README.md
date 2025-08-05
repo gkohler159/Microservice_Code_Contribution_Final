@@ -54,6 +54,10 @@ The format that the reply must be sent in is as follows in this example:
 }
 ```
 
+## UML Diagram
+![The UML diagram for the project]()
+
+
 
 
 
