@@ -25,9 +25,11 @@ options (1 or 2): 1 will add a new card, 2 will obtain the due date
 ### Recieving From 
 It should be noted that this is using ZMQ Dealer/Router methods which requires a slightly different approach than a traditional REQ/REP response. 
 This is to accomodate for the async nature of this program. A function call to recieve can be made like so:
-```message_contents = server_socket.recv_multipart()
-        identity, content = message_contents[0], message_contents[-1]
-        message = zmq.utils.jsonapi.loads(content.decode('utf-8'))```
+```
+message_contents = server_socket.recv_multipart()
+identity, content = message_contents[0], message_contents[-1]
+message = zmq.utils.jsonapi.loads(content.decode('utf-8'))
+```
 The format to expect a reciept of an urgency status is as follows:
 ```
 {
@@ -40,15 +42,17 @@ In order to send to the program, with the dealer approach, you will need to have
 It should be noted that like recieving from, this will require UTF-8.
 ```
 reply = json.dumps(package).encode('utf-8')
-            client_socket.send(reply)
-            print(f"reply: {reply}")
+client_socket.send(reply)
+print(f"reply: {reply}")
 ```
 The format that the reply must be sent in is as follows in this example:
-```{
+```
+{
 'card_id': card_id,
 'due_date': 2025-08-03T15:55:00
 'action': 1
-}```
+}
+```
 
 
 
