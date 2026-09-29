@@ -1,5 +1,8 @@
 # Date Urgency Microservice
 Grace Kohler
+
+# Context 
+This was part of a microservices project that I did as part of my university course for software development for another person's application
 ## Introduction
 The date_service.py microservice and the test_server is a basic implementation of the Microservice for the Kanban board that will assign urgency to dates. 
 
